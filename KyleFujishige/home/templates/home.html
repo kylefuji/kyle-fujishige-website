@@ -11,8 +11,9 @@
         <title>Kyle Fujishige</title>
     </head>
     <body>
+        {% load static %}
         <div class="container">
-            <nav class="navbar navbar-expand navbar-light bg-light">
+            <nav class="navbar navbar-expand navbar-light">
                 <ul class="navbar-nav nav-tabs">
                     <li class="nav-item">
                         <a class="nav-link active" id="home-tab" href="#">Home</a>
@@ -28,7 +29,8 @@
                     </li>
                 </ul>
             </nav>
-            <div class="content">
+            <div class="row justify-content-center h-100 w-100">
+                <img id="loading-image" src="{% static 'gifs/loading.gif' %}" alt="Loading..." />
             </div>
         </div>
     </body>
