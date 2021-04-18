@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
     <head>
@@ -5,19 +6,19 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+        <link rel="stylesheet" href="/static/css/app.css">
         <title>Kyle Fujishige</title>
+        <link rel="icon" href="{% static 'icons/mouse.svg' %}" type="image/icon">
     </head>
     <body>
-        {% load static %}
-        <div class="container">
-            <div id="nav_container"></div>
-        </div>
-            
+        <div id="app"></div>
     </body>
     <!-- Load React. -->
     <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>  
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
     <!-- Load our React component. -->
-    <script src="{% static 'js/components/nav_bar.js' %}" homeUrl="{% url 'home' %}" teaIconUrl="{% static 'icons/teabag.svg' %}"></script>
+    {{body|json_script:"nav-data"}}
+    <script id="static-url" type="application/json">{"url":"{% static '' %}"}</script>
+    <script type="module" src="{% static 'js/app.js' %}"></script>
 </html>
