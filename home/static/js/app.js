@@ -7,6 +7,7 @@ import Home from "/static/js/components/home.js";
 import AboutMe from "/static/js/components/about_me.js";
 import WorkExp from "/static/js/components/work_exp.js";
 import Projects from "/static/js/components/projects.js";
+import Contact from "/static/js/components/contact.js";
 
 class App extends React.Component {
     constructor(props) {
@@ -52,6 +53,13 @@ class App extends React.Component {
                 e("div", null, 
                     e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme, changeTab: this.handleClick.bind(this)}),
                     e(AboutMe, this.props, {theme:this.state.theme})
+                )
+            );
+        } else if (this.state.tab === 'contact') {
+            return(
+                e("div", null, 
+                    e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme, changeTab: this.handleClick.bind(this)}),
+                    e(Contact, this.props, {theme:this.state.theme})
                 )
             );
         }

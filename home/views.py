@@ -13,6 +13,7 @@ def home(request):
     about_me_posts = []
     project_posts = []
     work_exp_posts = []
+    contact_posts = []
     for item in nav_query_items:
         nav_data.append(model_to_dict(item))
     
@@ -26,5 +27,12 @@ def home(request):
             about_me_posts.append(model_to_dict(item))
         elif post['type'] == 'projects':
             project_posts.append(model_to_dict(item))
+        elif post['type'] == 'contact':
+            contact_posts.append(model_to_dict(item))
 
-    return render(request, "index.html", {'navData': nav_data, 'homePosts': home_posts, 'aboutMePosts': about_me_posts, 'projectPosts': project_posts, 'workExpPosts': work_exp_posts}) 
+    return render(request, "index.html", {'navData': nav_data, 
+                                            'homePosts': home_posts, 
+                                            'aboutMePosts': about_me_posts, 
+                                            'projectPosts': project_posts, 
+                                            'workExpPosts': work_exp_posts, 
+                                            'contactPosts': contact_posts}) 
