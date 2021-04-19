@@ -7,11 +7,17 @@ TYPE_CHOICES  = {
     ("projects", "projects"),
 }
 
+SIZE_CHOICES  = {
+    ("is-small", "small padding"),
+    ("is-medium", "medium padding"),
+    ("is-large", "large padding"),
+}
+
 class Post(models.Model):
     title = models.CharField(max_length=200, null=True, blank=True)
     content = models.TextField(null=True, blank=True)
     type = models.CharField(max_length=200, choices=TYPE_CHOICES)
-    size = models.CharField(max_length=50, default="is-medium")
+    size = models.CharField(max_length=50, default="is-medium", choices=SIZE_CHOICES)
     imageUrl = models.CharField(max_length=200, null=True, blank=True)
     url = models.CharField(max_length=200, null=True, blank=True)
     urlDescription = models.CharField(max_length=200, null=True, blank=True)
