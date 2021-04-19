@@ -14,7 +14,8 @@ class PostAdmin(admin.ModelAdmin):
                     'urlDescription')
 
 class NavBarItemAdmin(admin.ModelAdmin):
-    list_display = ('name', 
+    list_display = ('id',
+                    'name', 
                     'brand', 
                     'tab', 
                     'icon')
