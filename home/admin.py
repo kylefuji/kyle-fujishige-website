@@ -4,7 +4,8 @@ from django.contrib import admin
 from .models import Post, NavBarItem
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title',
+    list_display = ('id', 
+                    'title',
                     'content',
                     'type',
                     'size',
@@ -18,5 +19,5 @@ class NavBarItemAdmin(admin.ModelAdmin):
                     'tab', 
                     'icon')
 
-admin.site.register(Post)
-admin.site.register(NavBarItem)
+admin.site.register(Post, PostAdmin)
+admin.site.register(NavBarItem, NavBarItemAdmin)
