@@ -17,7 +17,6 @@ export default class WorkExp extends React.Component {
         return(
             e("div", null, 
                 items
-                // e(HeroSection, this.props)
             )
         );
     }

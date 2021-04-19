@@ -15,7 +15,6 @@ export default class AboutMe extends React.Component {
         return(
             e("div", null, 
                 items
-                // e(HeroSection, this.props)
             )
         );
     }
