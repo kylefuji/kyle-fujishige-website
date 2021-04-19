@@ -2,7 +2,7 @@
 
 const e = React.createElement;
 
-const lightHeros = ["is-info", "is-link", "is-primary", "is-white"];
+const lightHeros = ["is-white", "is-link", "is-primary", "is-info"];
 const darkHeros = ["is-dark", "is-dark is-light-dark"];
 
 export default class HeroSection extends React.Component {
@@ -35,7 +35,8 @@ class HeroContainer extends React.Component {
                             e(HeroImage, this.props)
                         ), e("div", {className: "column"}, 
                             e(HeroTitle, this.props),
-                            e(HeroSubTitle, this.props)
+                            e(HeroSubTitle, this.props),
+                            e(HeroLink, this.props)
                         )
                     )
                 )
@@ -46,7 +47,8 @@ class HeroContainer extends React.Component {
                     e("div", {className: "columns level"},
                         e("div", {className: "column"}, 
                             e(HeroTitle, this.props),
-                            e(HeroSubTitle, this.props)
+                            e(HeroSubTitle, this.props),
+                            e(HeroLink, this.props)
                         ), e("div", {className: "column"},
                             e(HeroImage, this.props)
                         )
@@ -55,9 +57,10 @@ class HeroContainer extends React.Component {
             );
         } else {
             return (
-                e("div", {className: "container has-text-centered"},
+                e("div", {className: "container"},
                     e(HeroTitle, this.props),
-                    e(HeroSubTitle, this.props)
+                    e(HeroSubTitle, this.props),
+                    e(HeroLink, this.props)
                 )
             );
         }
@@ -68,6 +71,14 @@ class HeroImage extends React.Component {
     render() {
         return(
             e("img", {alt: "", src: this.props.children.post.imageUrl, style:{'borderRadius': '100%'}})
+        );
+    }
+}
+
+class HeroLink extends React.Component {
+    render() {
+        return(
+            e("a", {href: this.props.children.post.url}, this.props.children.post.urlDescription)
         );
     }
 }
