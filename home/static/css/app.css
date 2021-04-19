@@ -2,3 +2,8 @@
     background-color: #424242 !important;
     color: white;
 }
+
+.is-darker-light{
+    background-color: #cecece !important;
+    color: black;
+}
