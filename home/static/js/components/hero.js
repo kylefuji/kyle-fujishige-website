@@ -2,7 +2,7 @@
 
 const e = React.createElement;
 
-const lightHeros = ["is-info", "is-link", "is-primary", "is-white"];
+const lightHeros = ["is-white", "is-link", "is-primary", "is-info"];
 const darkHeros = ["is-dark", "is-dark is-light-dark"];
 
 export default class HeroSection extends React.Component {
@@ -55,7 +55,7 @@ class HeroContainer extends React.Component {
             );
         } else {
             return (
-                e("div", {className: "container has-text-centered"},
+                e("div", {className: "container"},
                     e(HeroTitle, this.props),
                     e(HeroSubTitle, this.props)
                 )

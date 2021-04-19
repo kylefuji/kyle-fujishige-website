@@ -13,6 +13,7 @@ class Post(models.Model):
     type = models.CharField(max_length=200, choices=TYPE_CHOICES)
     size = models.CharField(max_length=50, default="is-medium")
     imageUrl = models.CharField(max_length=200, null=True, blank=True)
+    urls = models.TextField(null=True, blank=True)
 
 class NavBarItem(models.Model):
     name = models.CharField(max_length=50)

@@ -12,7 +12,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            theme: 'is-light',
+            theme: 'is-black',
             tab: "home"
         };
     }
