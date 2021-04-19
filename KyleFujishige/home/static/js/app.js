@@ -4,12 +4,15 @@ const e = React.createElement;
 
 import NavBar from "/static/js/components/nav_bar.js";
 import Home from "/static/js/components/home.js";
+import AboutMe from "/static/js/components/about_me.js";
+import WorkExp from "/static/js/components/work_exp.js";
+import Projects from "/static/js/components/projects.js";
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            theme: 'is-black',
+            theme: 'is-light',
             tab: "home"
         };
     }
@@ -33,28 +36,31 @@ class App extends React.Component {
         } else if (this.state.tab === 'work-exp') {
             return(
                 e("div", null, 
-                    e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme, changeTab: this.handleClick.bind(this)})
+                    e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme, changeTab: this.handleClick.bind(this)}),
+                    e(WorkExp, this.props, {theme:this.state.theme})
                 )
             );
         } else if (this.state.tab === 'projects') {
             return(
                 e("div", null, 
-                    e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme, changeTab: this.handleClick.bind(this)})
+                    e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme, changeTab: this.handleClick.bind(this)}),
+                    e(Projects, this.props, {theme:this.state.theme})
                 )
             );
         } else if (this.state.tab === 'about-me') {
             return(
                 e("div", null, 
-                    e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme, changeTab: this.handleClick.bind(this)})
+                    e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme, changeTab: this.handleClick.bind(this)}),
+                    e(AboutMe, this.props, {theme:this.state.theme})
                 )
             );
         }
     }
 }
 
-var NAVS = JSON.parse(document.getElementById('nav-data').textContent);
+var navData = JSON.parse(document.getElementById('nav-data').textContent);
 const domContainer = document.querySelector('#app');
-ReactDOM.render(e(App, {data: NAVS}), domContainer);
+ReactDOM.render(e(App, {navData: navData}), domContainer);
 
 
 var burger = document.querySelector('.navbar-burger');
