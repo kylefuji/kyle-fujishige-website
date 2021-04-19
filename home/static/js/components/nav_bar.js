@@ -58,7 +58,7 @@ class NavBarMenu extends React.Component {
 export default class NavBar extends React.Component {
     render() {
         return(
-            e("nav", {className: "navbar is-fixed-top " + this.props.children.theme, role:"navigation", 'aria-label':"main-navigation"},
+            e("nav", {className: "navbar is-fixed-top " + `${this.props.children.theme === "is-light" ? "is-info" : "is-black"}`, role:"navigation", 'aria-label':"main-navigation"},
                 e(NavBarBrand, this.props, {changeTab: this.props.children.changeTab}),
                 e(NavBarMenu, this.props, {toggleTheme: this.props.children.toggleTheme, theme:this.props.children.theme, changeTab: this.props.children.changeTab})
             )
