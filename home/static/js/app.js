@@ -81,6 +81,7 @@ burger.addEventListener('click', function() {
 var items = document.getElementsByClassName("navbar-item")
 for(var item of items) {
     item.addEventListener('click', function() {
+        window.scrollTo(0,0);
         burger.classList.remove('is-active');
         menu.classList.remove('is-active');
     });
