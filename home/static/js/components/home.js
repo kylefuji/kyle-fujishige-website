@@ -8,7 +8,7 @@ import HeroSection from "/static/js/components/hero.js";
 
 export default class Home extends React.Component {
     render() {
-        var items = []
+        var items = [e("br")]
         var counter = 0;
         posts.forEach((post) => {
             items.push(e(HeroSection, {post: post, key: (post.title, post.content)}, {theme:this.props.children.theme, post: post, count: counter}));
