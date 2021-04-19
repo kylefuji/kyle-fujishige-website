@@ -6,8 +6,8 @@ import json
 # Create your views here.
 def home(request):
     
-    nav_query_items = NavBarItem.objects.all()
-    post_query_items = Post.objects.all()
+    nav_query_items = NavBarItem.objects.all().order_by('id')
+    post_query_items = Post.objects.all().order_by('id')
     nav_data = []
     home_posts = []
     about_me_posts = []
