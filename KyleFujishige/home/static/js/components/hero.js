@@ -76,10 +76,12 @@ class HeroImage extends React.Component {
 class HeroTitle extends React.Component {
     render() {
         var content = []
-        var lines = this.props.children.post.title.split("\n");
-        lines.forEach((line) => {
-            content.push(e("p", {className: "title"}, line))
-        })
+        if (this.props.children.post.title != undefined) {
+            var lines = this.props.children.post.title.split("\n");
+            lines.forEach((line) => {
+                content.push(e("p", {className: "title"}, line))
+            })
+        }
         return(
             content
         );
@@ -89,10 +91,12 @@ class HeroTitle extends React.Component {
 class HeroSubTitle extends React.Component {
     render() {
         var content = []
-        var lines = this.props.children.post.content.split("\n");
-        lines.forEach((line) => {
-            content.push(e("p", {className: "subtitle"}, line))
-        })
+        if (this.props.children.post.content != undefined) {
+            var lines = this.props.children.post.content.split("\n");
+            lines.forEach((line) => {
+                content.push(e("p", {className: "subtitle"}, line))
+            })
+        }
         return(
             content
         );
