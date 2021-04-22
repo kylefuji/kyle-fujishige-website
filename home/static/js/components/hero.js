@@ -27,21 +27,7 @@ class HeroBody extends React.Component {
 
 class HeroContainer extends React.Component {
     render() {
-        if (this.props.children.count % 2 == 1 && this.props.children.post.imageUrl != null && this.props.children.post.imageUrl != "") {
-            return (
-                e("div", {className: "container"},
-                    e("div", {className: "columns level"},
-                        e("div", {className: "column"},
-                            e(HeroImage, this.props)
-                        ), e("div", {className: "column"}, 
-                            e(HeroTitle, this.props),
-                            e(HeroSubTitle, this.props),
-                            e(HeroLink, this.props)
-                        )
-                    )
-                )
-            );
-        } else if (this.props.children.count % 2 == 0 && this.props.children.post.imageUrl != null && this.props.children.post.imageUrl != "") {
+        if (this.props.children.post.imageUrl != null && this.props.children.post.imageUrl != "") {
             return (
                 e("div", {className: "container"},
                     e("div", {className: "columns level"},
@@ -70,7 +56,7 @@ class HeroContainer extends React.Component {
 class HeroImage extends React.Component {
     render() {
         return(
-            e("img", {alt: "", src: this.props.children.post.imageUrl, style:{'borderRadius': '100%'}})
+            e("img", {alt: "", src: this.props.children.post.imageUrl})
         );
     }
 }
