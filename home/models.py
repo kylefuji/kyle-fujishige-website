@@ -19,9 +19,10 @@ class Post(models.Model):
     content = models.TextField(null=True, blank=True)
     type = models.CharField(max_length=200, choices=TYPE_CHOICES)
     size = models.CharField(max_length=50, choices=SIZE_CHOICES)
-    imageUrl = models.CharField(max_length=200, null=True, blank=True)
-    url = models.CharField(max_length=200, null=True, blank=True)
+    imageUrl = models.CharField(max_length=300, null=True, blank=True)
+    url = models.CharField(max_length=300, null=True, blank=True)
     urlDescription = models.CharField(max_length=200, null=True, blank=True)
+    backgroundImageUrl = models.CharField(max_length=300, null=True, blank=True)
 
 class NavBarItem(models.Model):
     name = models.CharField(max_length=50)

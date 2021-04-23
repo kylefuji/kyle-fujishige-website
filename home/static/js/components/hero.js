@@ -7,9 +7,11 @@ const darkHeros = ["is-dark", "is-dark is-light-dark"];
 
 export default class HeroSection extends React.Component {
     render() {
+        console.log(`${this.props.children.post.backgroundImageUrl}`);
         return(
-            e("section", {className: "hero " + this.props.children.post.size +  " " +  `${this.props.children.theme === "is-light" ? lightHeros[this.props.children.count % 2] : darkHeros[this.props.children.count % 2]}`},
+            e("section", {style: {'position': 'relative', 'zIndex': '1'}, className: "hero " + this.props.children.post.size +  " " +  `${this.props.children.theme === "is-light" ? lightHeros[this.props.children.count % 2] : darkHeros[this.props.children.count % 2]}`},
                 e(HeroBody, this.props), 
+                e("div", {style: {'zIndex': '-1', 'opacity': '0.3', 'width': '100%', 'maxHeight':'100%', 'position': 'absolute', 'content': `url(${this.props.children.post.backgroundImageUrl})`}})
             )
         );
     }
@@ -75,8 +77,10 @@ class HeroTitle extends React.Component {
         var content = []
         if (this.props.children.post.title != undefined) {
             var lines = this.props.children.post.title.split("\n");
+            var counter = 0;
             lines.forEach((line) => {
-                content.push(e("p", {className: "title"}, line))
+                content.push(e("p", {className: "title", key: counter}, line));
+                counter++;
             })
         }
         return(
@@ -90,8 +94,10 @@ class HeroSubTitle extends React.Component {
         var content = []
         if (this.props.children.post.content != undefined) {
             var lines = this.props.children.post.content.split("\n");
+            var counter = 0;
             lines.forEach((line) => {
-                content.push(e("p", {className: "subtitle"}, line))
+                content.push(e("p", {className: "subtitle", key: counter}, line));
+                counter++;
             })
         }
         return(

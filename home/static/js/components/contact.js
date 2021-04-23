@@ -8,10 +8,10 @@ import HeroSection from "/static/js/components/hero.js";
 
 export default class Contact extends React.Component {
     render() {
-        var items = [e("br")]
+        var items = [e("br", {key: 0})]
         var counter = 0;
         posts.forEach((post) => {
-            items.push(e(HeroSection, {post: post, key: (post.title, post.content)}, {theme:this.props.children.theme, post: post, count: counter}));
+            items.push(e(HeroSection, {post: post, key: post.id}, {theme:this.props.children.theme, post: post, count: counter}));
             counter++;
         })
         return(
