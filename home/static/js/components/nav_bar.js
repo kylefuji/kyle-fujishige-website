@@ -48,7 +48,10 @@ class NavBarMenu extends React.Component {
                     items
                 ),
                 e("div", {className: "navbar-end"},
-                    e("a", {className: "navbar-item", id:"toggle-theme", onClick: this.props.children.toggleTheme}, `${this.props.children.theme === "is-light" ? "Dark Mode" : "Light Mode"}`)
+                    e("a", {className: "navbar-item", id:"toggle-theme", onClick: this.props.children.toggleTheme},
+                        e("img", {src: "/static/icons/yingyang.svg", alt: "", width:"32px", height:"32px", className:"mr-2"}),
+                        `${this.props.children.theme === "is-light" ? "Dark Mode" : "Light Mode"}`
+                     )
                 )
             )
         );
