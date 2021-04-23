@@ -18,7 +18,7 @@ class NavBarBrand extends React.Component {
         var items = []
         this.props.navData.forEach((item) => {
             if (item.brand) {
-                items.push(e(NavBarItem, {item: item, key: item.name}, {changeTab: this.props.children.changeTab}))
+                items.push(e(NavBarItem, {item: item, key: item.id}, {changeTab: this.props.children.changeTab}))
             }    
         })
         return (
@@ -39,7 +39,7 @@ class NavBarMenu extends React.Component {
         var items = []
         this.props.navData.forEach((item) => {
             if (!item.brand) {
-                items.push(e(NavBarItem, {item: item, key: item.name}, {changeTab: this.props.children.changeTab}))
+                items.push(e(NavBarItem, {item: item, key: item.id}, {changeTab: this.props.children.changeTab}))
             }    
         })
         return (
