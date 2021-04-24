@@ -7,7 +7,6 @@ const darkHeros = ["is-dark", "is-dark is-light-dark"];
 
 export default class HeroSection extends React.Component {
     render() {
-        console.log(`${this.props.children.post.backgroundImageUrl}`);
         if (this.props.children.post.backgroundImageUrl != null && this.props.children.post.backgroundImageUrl != "") {
             return(
                 e("section", {style: {'position': 'relative', 'zIndex': '1'}, className: "hero " + this.props.children.post.size +  " " +  `${this.props.children.theme === "is-light" ? lightHeros[this.props.children.count % 2] : darkHeros[this.props.children.count % 2]}`},
