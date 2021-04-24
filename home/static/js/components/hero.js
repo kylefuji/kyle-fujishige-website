@@ -11,7 +11,7 @@ export default class HeroSection extends React.Component {
             return(
                 e("section", {style: {'position': 'relative', 'zIndex': '1'}, className: "hero " + this.props.children.post.size +  " " +  `${this.props.children.theme === "is-light" ? lightHeros[this.props.children.count % 2] : darkHeros[this.props.children.count % 2]}`},
                     e(HeroBody, this.props), 
-                    e("div", {style: {'zIndex': '-1', 'opacity': '0.3', 'width': '100%', 'height':'100%', 'position': 'absolute', 'content': `url(${this.props.children.post.backgroundImageUrl})`}})
+                    e("div", {style: {'zIndex': '-1', 'opacity': '0.5', 'width': '100%', 'height':'100%', 'position': 'absolute', 'content': `url(${this.props.children.post.backgroundImageUrl})`}})
                 )
             );
         } else {
