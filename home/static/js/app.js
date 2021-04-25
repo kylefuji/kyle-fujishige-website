@@ -14,8 +14,17 @@ class App extends React.Component {
         super(props);
         this.state = {
             theme: 'is-black',
-            tab: "home"
+            tab: "home",
+            error: null,
+            errorInfo: null
         };
+    }
+
+    componentDidCatch(error, errorInfo) {
+        this.setState({
+            error: error, 
+            errorInfo: errorInfo
+        });
     }
 
     toggleTheme() {
@@ -60,6 +69,16 @@ class App extends React.Component {
                 e("div", null, 
                     e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme, changeTab: this.handleClick.bind(this)}),
                     e(Contact, this.props, {theme:this.state.theme})
+                )
+            );
+        } else if (this.state.errorInfo) {
+            return(
+                e("div", null, 
+                    e("h2", null, "Something went wrong"),
+                    e("p", null, this.setState.error),
+                    e("p", null, this.setState.errorInfo),
+                    e("br"),
+                    e("Please refresh the page")
                 )
             );
         }
