@@ -28,7 +28,7 @@ class NavBarBrand extends React.Component {
         var items = []
         this.props.navData.forEach((item) => {
             if (item.brand) {
-                items.push(e(NavBarItem, {item: item, key: item.id}, {changeTab: this.props.children.changeTab}))
+                items.push(e(NavBarItem, {item: item, key: item.id}))
             }    
         })
         return (
@@ -49,7 +49,7 @@ class NavBarMenu extends React.Component {
         var items = []
         this.props.navData.forEach((item) => {
             if (!item.brand) {
-                items.push(e(NavBarItem, {item: item, key: item.id}, {changeTab: this.props.children.changeTab}))
+                items.push(e(NavBarItem, {item: item, key: item.id}))
             }    
         })
         if (this.props.children.theme === "is-light") {
@@ -88,8 +88,8 @@ export default class NavBar extends React.Component {
     render() {
         return(
             e("nav", {className: "navbar is-fixed-top " + `${this.props.children.theme === "is-light" ? "is-info" : "is-black"}`, role:"navigation", 'aria-label':"main-navigation"},
-                e(NavBarBrand, this.props, {changeTab: this.props.children.changeTab}),
-                e(NavBarMenu, this.props, {toggleTheme: this.props.children.toggleTheme, theme:this.props.children.theme, changeTab: this.props.children.changeTab})
+                e(NavBarBrand, this.props),
+                e(NavBarMenu, this.props, {toggleTheme: this.props.children.toggleTheme, theme:this.props.children.theme})
             )
         );
     }

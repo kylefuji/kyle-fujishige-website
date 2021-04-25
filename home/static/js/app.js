@@ -14,17 +14,12 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            theme: 'is-black',
-            tab: "home"
+            theme: 'is-black'
         };
     }
 
     toggleTheme() {
         this.setState({theme: this.state.theme === 'is-light' ? 'is-black' : 'is-light'})
-    }
-
-    handleClick(el) {
-        this.setState({tab: el.target.id})
     }
 
     render() {
@@ -44,7 +39,7 @@ class App extends React.Component {
 
         return (
             e(Router, null, 
-                e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme, changeTab: this.handleClick.bind(this)}),
+                e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme}),
                 e(Switch, null, 
                     e(Route, {exact: null, path: "/", render: () => e(Home, this.props, {theme:this.state.theme})}),
                     e(Route, {path: "/work-exp", render: () => e(WorkExp, this.props, {theme:this.state.theme})}),
