@@ -66,6 +66,9 @@ class App extends React.Component {
         return(
             e("div", null, 
                 e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme, changeTab: this.handleClick.bind(this)}),
+                e("br"),
+                e("br"),
+                e("br"),
                 e("h2", null, "Something went wrong"),
                 e("p", null, "Either refresh the page or select a tab in the nav bar.")
             )
