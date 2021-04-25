@@ -14,20 +14,8 @@ class App extends React.Component {
         super(props);
         this.state = {
             theme: 'is-black',
-            tab: "home",
-            hasError: false
+            tab: "home"
         };
-    }
-
-    static getDerivedStateFromError(error) {    // Update state so the next render will show the fallback UI.    
-        return { hasError: true };  
-    }
-
-    componentDidCatch(error, errorInfo) {
-        this.setState({
-            error: error, 
-            errorInfo: errorInfo
-        });
     }
 
     toggleTheme() {
@@ -74,14 +62,13 @@ class App extends React.Component {
                     e(Contact, this.props, {theme:this.state.theme})
                 )
             );
-        } else if (this.state.hasError) {
-            return(
-                e("div", null, 
-                    e("h2", null, "Something went wrong"),
-                    e("Please refresh the page")
-                )
-            );
-        }
+        } 
+        return(
+            e("div", null, 
+                e("h2", null, "Something went wrong"),
+                e("Please refresh the page")
+            )
+        );
     }
 }
 
