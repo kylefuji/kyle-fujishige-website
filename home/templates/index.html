@@ -18,13 +18,14 @@
     <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
     <script src='https://unpkg.com/react-router-dom@5.1.0/umd/react-router-dom.min.js'></script>
-    <!-- Load our React component. -->
+    <!-- Load our django templates as json. REST API calls aren't used because 
+        the data needs to only be called once. -->
     {{navData|json_script:"nav-data"}}
     {{homePosts|json_script:"home-posts"}}
     {{aboutMePosts|json_script:"about-me-posts"}}
     {{projectPosts|json_script:"project-posts"}}
     {{workExpPosts|json_script:"work-exp-posts"}}
     {{contactPosts|json_script:"contact-posts"}}
-    <script id="static-url" type="application/json">{"url":"/static/"}</script>
+    <!-- Load our React component. -->
     <script type="module" src="{% static 'js/app.js' %}"></script>
 </html>
