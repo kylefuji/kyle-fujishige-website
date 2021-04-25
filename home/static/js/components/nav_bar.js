@@ -42,19 +42,35 @@ class NavBarMenu extends React.Component {
                 items.push(e(NavBarItem, {item: item, key: item.id}, {changeTab: this.props.children.changeTab}))
             }    
         })
-        return (
-            e("div", {className: "navbar-menu", id:"navbarToggleMenu"}, 
-                e("div", {className: "navbar-start"},
-                    items
-                ),
-                e("div", {className: "navbar-end"},
-                    e("a", {className: "navbar-item", id:"toggle-theme", onClick: this.props.children.toggleTheme},
-                        e("img", {src: "/static/icons/yingyang.svg", alt: "", width:"32px", height:"32px", className:"mr-2"}),
-                        `${this.props.children.theme === "is-light" ? "Dark Mode" : "Light Mode"}`
-                     )
+        if (this.props.children.theme === "is-light") {
+            return (
+                e("div", {className: "navbar-menu", id:"navbarToggleMenu"}, 
+                    e("div", {className: "navbar-start"},
+                        items
+                    ),
+                    e("div", {className: "navbar-end"},
+                        e("a", {className: "navbar-item", id:"toggle-theme", onClick: this.props.children.toggleTheme},
+                            e("img", {src: "/static/icons/moon.svg", alt: "", width:"32px", height:"32px", className:"mr-2"}),
+                            "Dark Mode"
+                        )
+                    )
                 )
-            )
-        );
+            );
+        } else {
+            return (
+                e("div", {className: "navbar-menu", id:"navbarToggleMenu"}, 
+                    e("div", {className: "navbar-start"},
+                        items
+                    ),
+                    e("div", {className: "navbar-end"},
+                        e("a", {className: "navbar-item", id:"toggle-theme", onClick: this.props.children.toggleTheme},
+                            e("img", {src: "/static/icons/sun.svg", alt: "", width:"32px", height:"32px", className:"mr-2"}),
+                            "Light Mode"
+                        )
+                    )
+                )
+            );
+        }
     }
 }
 
