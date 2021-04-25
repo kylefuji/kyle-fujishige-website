@@ -8,6 +8,7 @@ import AboutMe from "/static/js/components/about_me.js";
 import WorkExp from "/static/js/components/work_exp.js";
 import Projects from "/static/js/components/projects.js";
 import Contact from "/static/js/components/contact.js";
+import HeroSection from "/static/js/components/hero.js";
 
 class App extends React.Component {
     constructor(props) {
@@ -27,6 +28,16 @@ class App extends React.Component {
     }
 
     render() {
+        const errMsg = {
+            "title": "Something went wrong"
+            "content": "Either refresh the page or select a tab in the nav bar.",
+            "type": null,
+            "size": "is-large",
+            "imageUrl": null,
+            "url": null,
+            "urlDescription": null,
+            "backgroundImageUrl": null
+        }
         if (this.state.tab === 'home' || this.state.tab === 'kyle') {
             return(
                 e("div", null, 
@@ -68,9 +79,7 @@ class App extends React.Component {
                 e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme, changeTab: this.handleClick.bind(this)}),
                 e("br"),
                 e("br"),
-                e("br"),
-                e("h2", null, "Something went wrong"),
-                e("p", null, "Either refresh the page or select a tab in the nav bar.")
+                e(HeroSection, {post: errMsg}, {theme:this.state.theme, post: errMsg, count: 0})
             )
         );
     }
