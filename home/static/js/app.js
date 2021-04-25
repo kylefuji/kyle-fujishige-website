@@ -33,7 +33,7 @@ class App extends React.Component {
         const Switch = ReactRouterDOM.Switch;
         const errMsg = {
                 "title": "Something went wrong",
-                "content": "Either refresh the page or select a tab in the navigation bar.",
+                "content": "Check the URL or select a new tab in the navigation bar.",
                 "type": null,
                 "size": "is-large",
                 "imageUrl": null,
