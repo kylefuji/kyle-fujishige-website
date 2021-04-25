@@ -4,12 +4,22 @@ const e = React.createElement;
 
 class NavBarItem extends React.Component {
     render() {
-        return (
-            e("a", {className: "navbar-item", id: this.props.item.tab, onClick: this.props.children.changeTab},
-                this.props.item.icon === null ? null : e("img", {src: this.props.item.icon, alt: "", width:"32px", height:"32px", className:"mr-2"}),
-                this.props.item.name
-            )
-        );
+        const Link = ReactRouterDOM.Link;
+        if (this.props.item.tab == "kyle" || this.props.item.tab == "home") {
+            return (
+                e(Link, {className: "navbar-item", id: this.props.item.tab, to: ""},
+                    this.props.item.icon === null ? null : e("img", {src: this.props.item.icon, alt: "", width:"32px", height:"32px", className:"mr-2"}),
+                    this.props.item.name
+                )
+            );
+        } else {
+            return (
+                e(Link, {className: "navbar-item", id: this.props.item.tab, to: this.props.item.tab},
+                    this.props.item.icon === null ? null : e("img", {src: this.props.item.icon, alt: "", width:"32px", height:"32px", className:"mr-2"}),
+                    this.props.item.name
+                )
+            );
+        }
     }
 }
 

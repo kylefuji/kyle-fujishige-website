@@ -28,58 +28,31 @@ class App extends React.Component {
     }
 
     render() {
+        const Router = ReactRouterDOM.HashRouter;
+        const Route = ReactRouterDOM.Route;
+        const Switch = ReactRouterDOM.Switch;
         const errMsg = {
-            "title": "Something went wrong",
-            "content": "Either refresh the page or select a tab in the navigation bar.",
-            "type": null,
-            "size": "is-large",
-            "imageUrl": null,
-            "url": null,
-            "urlDescription": null,
-            "backgroundImageUrl": null
-        }
-        if (this.state.tab === 'home' || this.state.tab === 'kyle') {
-            return(
-                e("div", null, 
-                    e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme, changeTab: this.handleClick.bind(this)}),
-                    e(Home, this.props, {theme:this.state.theme})
-                )
-            );
-        } else if (this.state.tab === 'work-exp') {
-            return(
-                e("div", null, 
-                    e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme, changeTab: this.handleClick.bind(this)}),
-                    e(WorkExp, this.props, {theme:this.state.theme})
-                )
-            );
-        } else if (this.state.tab === 'projects') {
-            return(
-                e("div", null, 
-                    e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme, changeTab: this.handleClick.bind(this)}),
-                    e(Projects, this.props, {theme:this.state.theme})
-                )
-            );
-        } else if (this.state.tab === 'about-me') {
-            return(
-                e("div", null, 
-                    e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme, changeTab: this.handleClick.bind(this)}),
-                    e(AboutMe, this.props, {theme:this.state.theme})
-                )
-            );
-        } else if (this.state.tab === 'contact') {
-            return(
-                e("div", null, 
-                    e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme, changeTab: this.handleClick.bind(this)}),
-                    e(Contact, this.props, {theme:this.state.theme})
-                )
-            );
-        } 
-        return(
-            e("div", null, 
+                "title": "Something went wrong",
+                "content": "Either refresh the page or select a tab in the navigation bar.",
+                "type": null,
+                "size": "is-large",
+                "imageUrl": null,
+                "url": null,
+                "urlDescription": null,
+                "backgroundImageUrl": null
+            }
+
+        return (
+            e(Router, null, 
                 e(NavBar, this.props, {toggleTheme: this.toggleTheme.bind(this), theme:this.state.theme, changeTab: this.handleClick.bind(this)}),
-                e("br"),
-                e("br"),
-                e(HeroSection, {post: errMsg}, {theme:this.state.theme, post: errMsg, count: 0})
+                e(Switch, null, 
+                    e(Route, {exact: null, path: "/", render: () => e(Home, this.props, {theme:this.state.theme})}),
+                    e(Route, {path: "/work-exp", render: () => e(WorkExp, this.props, {theme:this.state.theme})}),
+                    e(Route, {path: "/projects", render: () => e(Projects, this.props, {theme:this.state.theme})}),
+                    e(Route, {path: "/about-me", render: () => e(AboutMe, this.props, {theme:this.state.theme})}),
+                    e(Route, {path: "/contact", render: () => e(Contact, this.props, {theme:this.state.theme})}),
+                    e(Route, {exact: null, path: "*", render: () => e("div", null, e("br"), e("br"), e(HeroSection, {post: errMsg}, {theme:this.state.theme, post: errMsg, count: 0}))})
+                )
             )
         );
     }
