@@ -57,6 +57,11 @@
                                         {% if homePost.content %}
                                             <p class="subtitle">{{homePost.content}}</p>
                                         {% endif %}
+                                        {% if homePost.url %}
+                                            <div style="justify-content: center; display: flex;">
+                                                <a class="button is-link" href="{{homePost.url}}" target="_blank">{{homePost.urlDescription}}</a>
+                                            </div>                                  
+                                        {% endif %}
                                     </div>
                                     <div class="column">
                                         <div style="justify-content: center; align-items: center; display: flex;">
@@ -71,18 +76,24 @@
                         {% endif %}
                     </section>
                 {% else %}
-                <section class="hero {{homePost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
-                    <div class="hero-body">
-                        <div class="container">
-                            {% if homePost.title %}
-                                <p class="title">{{homePost.title}}</p>
-                            {% endif %}
-                            {% if homePost.content %}
-                                <p class="subtitle">{{homePost.content}}</p>
+                    <section class="hero {{homePost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
+                        <div class="hero-body">
+                            <div class="container">
+                                {% if homePost.title %}
+                                    <p class="title">{{homePost.title}}</p>
+                                {% endif %}
+                                {% if homePost.content %}
+                                    <p class="subtitle">{{homePost.content}}</p>
+                                {% endif %}
+                                {% if homePost.url %}
+                                    <a class="button is-link" href="{{homePost.url}}" target="_blank">{{homePost.urlDescription}}</a>
+                                {% endif %}
+                            </div>
+                            {% if homePost.backgroundImageUrl %}
+                                <div style="z-index: -1; opacity: 0.5; width: 100%; height: 100%; position: absolute; content: url({{homePost.backgroundImageUrl}});"></div>
                             {% endif %}
                         </div>
-                    </div>
-                </section>
+                    </section>
                 {% endif %}
             {% endfor %}
         </div>
@@ -99,6 +110,11 @@
                                         {% endif %}
                                         {% if workExpPost.content %}
                                             <p class="subtitle">{{workExpPost.content}}</p>
+                                        {% endif %}
+                                        {% if workExpPost.url %}
+                                            <div style="justify-content: center; display: flex;">
+                                                <a class="button is-link" href="{{workExpPost.url}}" target="_blank">{{workExpPost.urlDescription}}</a>
+                                            </div>
                                         {% endif %}
                                     </div>
                                     <div class="column">
@@ -123,8 +139,14 @@
                             {% if workExpPost.content %}
                                 <p class="subtitle">{{workExpPost.content}}</p>
                             {% endif %}
+                            {% if workExpPost.url %}
+                                <a class="button is-link" href="{{workExpPost.url}}" target="_blank">{{workExpPost.urlDescription}}</a>
+                            {% endif %}
                         </div>
                     </div>
+                    {% if workExpPost.backgroundImageUrl %}
+                        <div style="z-index: -1; opacity: 0.5; width: 100%; height: 100%; position: absolute; content: url({{workExpPost.backgroundImageUrl}});"></div>
+                    {% endif %}
                 </section>
                 {% endif %}
             {% endfor %}
@@ -142,6 +164,11 @@
                                         {% endif %}
                                         {% if projectPost.content %}
                                             <p class="subtitle">{{projectPost.content}}</p>
+                                        {% endif %}
+                                        {% if projectPost.url %}
+                                            <div style="justify-content: center; display: flex;">
+                                                <a class="button is-link" href="{{projectPost.url}}" target="_blank">{{projectPost.urlDescription}}</a>
+                                            </div>
                                         {% endif %}
                                     </div>
                                     <div class="column">
@@ -166,7 +193,13 @@
                             {% if projectPost.content %}
                                 <p class="subtitle">{{projectPost.content}}</p>
                             {% endif %}
+                            {% if projectPost.url %}
+                                <a class="button is-link" href="{{projectPost.url}}" target="_blank">{{projectPost.urlDescription}}</a>
+                            {% endif %}
                         </div>
+                        {% if projectPost.backgroundImageUrl %}
+                            <div style="z-index: -1; opacity: 0.5; width: 100%; height: 100%; position: absolute; content: url({{projectPost.backgroundImageUrl}});"></div>
+                        {% endif %}
                     </div>
                 </section>
                 {% endif %}
@@ -186,6 +219,11 @@
                                         {% if aboutMePost.content %}
                                             <p class="subtitle">{{aboutMePost.content}}</p>
                                         {% endif %}
+                                        {% if aboutMePost.url %}
+                                            <div style="justify-content: center; display: flex;">
+                                                <a class="button is-link" href="{{aboutMePost.url}}" target="_blank">{{aboutMePost.urlDescription}}</a>
+                                            </div>
+                                        {% endif %}
                                     </div>
                                     <div class="column">
                                         <div style="justify-content: center; align-items: center; display: flex;">
@@ -200,18 +238,24 @@
                         {% endif %}
                     </section>
                 {% else %}
-                <section class="hero {{aboutMePost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
-                    <div class="hero-body">
-                        <div class="container">
-                            {% if aboutMePost.title %}
-                                <p class="title">{{aboutMePost.title}}</p>
-                            {% endif %}
-                            {% if aboutMePost.content %}
-                                <p class="subtitle">{{aboutMePost.content}}</p>
-                            {% endif %}
+                    <section class="hero {{aboutMePost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
+                        <div class="hero-body">
+                            <div class="container">
+                                {% if aboutMePost.title %}
+                                    <p class="title">{{aboutMePost.title}}</p>
+                                {% endif %}
+                                {% if aboutMePost.content %}
+                                    <p class="subtitle">{{aboutMePost.content}}</p>
+                                {% endif %}
+                                {% if aboutMePost.url %}
+                                    <a class="button is-link" href="{{aboutMePost.url}}" target="_blank">{{aboutMePost.urlDescription}}</a>
+                                {% endif %}
+                            </div>
                         </div>
-                    </div>
-                </section>
+                        {% if aboutMePost.backgroundImageUrl %}
+                            <div style="z-index: -1; opacity: 0.5; width: 100%; height: 100%; position: absolute; content: url({{aboutMePost.backgroundImageUrl}});"></div>
+                        {% endif %}
+                    </section>
                 {% endif %}
             {% endfor %}
         </div>
@@ -229,6 +273,11 @@
                                         {% if contactPost.content %}
                                             <p class="subtitle">{{contactPost.content}}</p>
                                         {% endif %}
+                                        {% if contactPost.url %}
+                                            <div style="justify-content: center; display: flex;">
+                                                <a class="button is-link" href="{{contactPost.url}}" target="_blank">{{contactPost.urlDescription}}</a>
+                                            </div>
+                                        {% endif %}
                                     </div>
                                     <div class="column">
                                         <div style="justify-content: center; align-items: center; display: flex;">
@@ -243,18 +292,24 @@
                         {% endif %}
                     </section>
                 {% else %}
-                <section class="hero {{contactPost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
-                    <div class="hero-body">
-                        <div class="container">
-                            {% if contactPost.title %}
-                                <p class="title">{{contactPost.title}}</p>
-                            {% endif %}
-                            {% if contactPost.content %}
-                                <p class="subtitle">{{contactPost.content}}</p>
-                            {% endif %}
+                    <section class="hero {{contactPost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
+                        <div class="hero-body">
+                            <div class="container">
+                                {% if contactPost.title %}
+                                    <p class="title">{{contactPost.title}}</p>
+                                {% endif %}
+                                {% if contactPost.content %}
+                                    <p class="subtitle">{{contactPost.content}}</p>
+                                {% endif %}
+                                {% if contactPost.url %}
+                                    <a class="button is-link" href="{{contactPost.url}}" target="_blank">{{contactPost.urlDescription}}</a>
+                                {% endif %}
+                            </div>
                         </div>
-                    </div>
-                </section>
+                        {% if contactPost.backgroundImageUrl %}
+                            <div style="z-index: -1; opacity: 0.5; width: 100%; height: 100%; position: absolute; content: url({{contactPost.backgroundImageUrl}});"></div>
+                        {% endif %}
+                    </section>
                 {% endif %}
             {% endfor %}
         </div>
