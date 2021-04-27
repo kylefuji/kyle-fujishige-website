@@ -59,6 +59,17 @@ class HeroContainer extends React.Component {
                     e(HeroLink, this.props)
                 )
             );
+        } else if (this.props.children.post.imageUrl != null && this.props.children.post.imageUrl != "") {
+            e("div", {className: "container"},
+                    e("div", {className: "columns level"},
+                        e("div", {className: "column"}, 
+                            e(HeroTitle, this.props),
+                            e(HeroSubTitle, this.props)
+                        ), e("div", {className: "column"},
+                            e(HeroImage, this.props)
+                        )
+                    )
+                )
         } else {
             return (
                 e("div", {className: "container"},
