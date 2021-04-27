@@ -29,33 +29,51 @@
     <!-- Load our React component. -->
     <script type="module" src="{% static 'js/app.js' %}"></script>
     <noscript>
-        {% for homePost in homePosts %}
-            <h1>{{homePost.title}}</h1>
-            <p>{{homePost.content}}</p>
+        {% for nav in navData %}
+            <a href="#{{nav.tab}}">{{nav.name}}</a> | 
         {% endfor %}
+        <div id="home">
+            {% for homePost in homePosts %}
+                <h1>{{homePost.title}}</h1>
+                <p>{{homePost.content}}</p>
+                <br>
+            {% endfor %}
+        </div>
         <br>
         <br>
-        {% for aboutMePost in aboutMePosts %}
-            <h1>{{aboutMePost.title}}</h1>
-            <p>{{aboutMePost.content}}</p>
-        {% endfor %}
+        <br>
+        <div id="work-exp">
+            {% for workExpPost in workExpPosts %}
+                <h1>{{workExpPost.title}}</h1>
+                <p>{{workExpPost.content}}</p>
+            {% endfor %}
+        </div>
         <br>
         <br>
-        {% for projectPost in projectPosts %}
-            <h1>{{projectPost.title}}</h1>
-            <p>{{projectPost.content}}</p>
-        {% endfor %}
+        <br>
+        <div id="projects">
+            {% for projectPost in projectPosts %}
+                <h1>{{projectPost.title}}</h1>
+                <p>{{projectPost.content}}</p>
+            {% endfor %}
+        </div>
         <br>
         <br>
-        {% for workExpPost in workExpPosts %}
-            <h1>{{workExpPost.title}}</h1>
-            <p>{{workExpPost.content}}</p>
-        {% endfor %}
+        <br>
+        <div id="about-me">
+            {% for aboutMePost in aboutMePosts %}
+                <h1>{{aboutMePost.title}}</h1>
+                <p>{{aboutMePost.content}}</p>
+            {% endfor %}
+        </div>
         <br>
         <br>
-        {% for contactPost in contactPosts %}
-            <h1>{{contactPost.title}}</h1>
-            <p>{{contactPost.content}}</p>
-        {% endfor %}
+        <br>
+        <div id="contact">
+            {% for contactPost in contactPosts %}
+                <h1>{{contactPost.title}}</h1>
+                <p>{{contactPost.content}}</p>
+            {% endfor %}
+        </div>
     </noscript>
 </html>
