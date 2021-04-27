@@ -29,55 +29,233 @@
     <!-- Load our React component. -->
     <script type="module" src="{% static 'js/app.js' %}"></script>
     <noscript>
-        {% for nav in navData %}
-            <a href="#{{nav.tab}}">{{nav.name}}</a> | 
-        {% endfor %}
+        <nav class="navbar is-fixed-top is-black" role="navigation" aria-label="main-navigation">
+            <div class="navbar-brand">
+                {% for nav in navData %}
+                    <a href="#{{nav.tab}}" class="navbar-item">
+                        {% if nav.icon %}
+                            <img class="mr-2" src="{{nav.icon}}" alt="" width="32px" height="32px">
+                        {% endif %}
+                        {{nav.name}}
+                    </a>
+                {% endfor %}
+            </div>
+        </nav>
+        <br>
         <br>
         <div id="home">
             {% for homePost in homePosts %}
-                <h1>{{homePost.title}}</h1>
-                <p>{{homePost.content}}</p>
-                <br>
+                {% if homePost.imageUrl%}
+                    <section class="hero {{homePost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
+                        <div class="hero-body">
+                            <div class="container">
+                                <div class="columns level">
+                                    <div class="column">
+                                        {% if homePost.title %}
+                                            <p class="title">{{homePost.title}}</p>
+                                        {% endif %}
+                                        {% if homePost.content %}
+                                            <p class="subtitle">{{homePost.content}}</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="column">
+                                        <div style="justify-content: center; align-items: center; display: flex;">
+                                            <img alt="" src="{{homePost.imageUrl}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% if homePost.backgroundImageUrl %}
+                            <div style="z-index: -1; opacity: 0.5; width: 100%; height: 100%; position: absolute; content: url({{homePost.backgroundImageUrl}});"></div>
+                        {% endif %}
+                    </section>
+                {% else %}
+                <section class="hero {{homePost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
+                    <div class="hero-body">
+                        <div class="container">
+                            {% if homePost.title %}
+                                <p class="title">{{homePost.title}}</p>
+                            {% endif %}
+                            {% if homePost.content %}
+                                <p class="subtitle">{{homePost.content}}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </section>
+                {% endif %}
             {% endfor %}
         </div>
-        <br>
-        <br>
-        <br>
         <div id="work-exp">
             {% for workExpPost in workExpPosts %}
-                <h1>{{workExpPost.title}}</h1>
-                <p>{{workExpPost.content}}</p>
-                <br>
+                {% if workExpPost.imageUrl%}
+                    <section class="hero {{workExpPost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
+                        <div class="hero-body">
+                            <div class="container">
+                                <div class="columns level">
+                                    <div class="column">
+                                        {% if workExpPost.title %}
+                                            <p class="title">{{workExpPost.title}}</p>
+                                        {% endif %}
+                                        {% if workExpPost.content %}
+                                            <p class="subtitle">{{workExpPost.content}}</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="column">
+                                        <div style="justify-content: center; align-items: center; display: flex;">
+                                            <img alt="" src="{{workExpPost.imageUrl}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% if workExpPost.backgroundImageUrl %}
+                            <div style="z-index: -1; opacity: 0.5; width: 100%; height: 100%; position: absolute; content: url({{workExpPost.backgroundImageUrl}});"></div>
+                        {% endif %}
+                    </section>
+                {% else %}
+                <section class="hero {{workExpPost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
+                    <div class="hero-body">
+                        <div class="container">
+                            {% if workExpPost.title %}
+                                <p class="title">{{workExpPost.title}}</p>
+                            {% endif %}
+                            {% if workExpPost.content %}
+                                <p class="subtitle">{{workExpPost.content}}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </section>
+                {% endif %}
             {% endfor %}
         </div>
-        <br>
-        <br>
-        <br>
         <div id="projects">
             {% for projectPost in projectPosts %}
-                <h1>{{projectPost.title}}</h1>
-                <p>{{projectPost.content}}</p>
-                <br>
+                {% if projectPost.imageUrl%}
+                    <section class="hero {{projectPost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
+                        <div class="hero-body">
+                            <div class="container">
+                                <div class="columns level">
+                                    <div class="column">
+                                        {% if projectPost.title %}
+                                            <p class="title">{{projectPost.title}}</p>
+                                        {% endif %}
+                                        {% if projectPost.content %}
+                                            <p class="subtitle">{{projectPost.content}}</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="column">
+                                        <div style="justify-content: center; align-items: center; display: flex;">
+                                            <img alt="" src="{{projectPost.imageUrl}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% if projectPost.backgroundImageUrl %}
+                            <div style="z-index: -1; opacity: 0.5; width: 100%; height: 100%; position: absolute; content: url({{projectPost.backgroundImageUrl}});"></div>
+                        {% endif %}
+                    </section>
+                {% else %}
+                <section class="hero {{projectPost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
+                    <div class="hero-body">
+                        <div class="container">
+                            {% if projectPost.title %}
+                                <p class="title">{{projectPost.title}}</p>
+                            {% endif %}
+                            {% if projectPost.content %}
+                                <p class="subtitle">{{projectPost.content}}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </section>
+                {% endif %}
             {% endfor %}
         </div>
-        <br>
-        <br>
-        <br>
         <div id="about-me">
             {% for aboutMePost in aboutMePosts %}
-                <h1>{{aboutMePost.title}}</h1>
-                <p>{{aboutMePost.content}}</p>
-                <br>
+                {% if aboutMePost.imageUrl%}
+                    <section class="hero {{aboutMePost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
+                        <div class="hero-body">
+                            <div class="container">
+                                <div class="columns level">
+                                    <div class="column">
+                                        {% if aboutMePost.title %}
+                                            <p class="title">{{aboutMePost.title}}</p>
+                                        {% endif %}
+                                        {% if aboutMePost.content %}
+                                            <p class="subtitle">{{aboutMePost.content}}</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="column">
+                                        <div style="justify-content: center; align-items: center; display: flex;">
+                                            <img alt="" src="{{aboutMePost.imageUrl}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% if aboutMePost.backgroundImageUrl %}
+                            <div style="z-index: -1; opacity: 0.5; width: 100%; height: 100%; position: absolute; content: url({{aboutMePost.backgroundImageUrl}});"></div>
+                        {% endif %}
+                    </section>
+                {% else %}
+                <section class="hero {{aboutMePost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
+                    <div class="hero-body">
+                        <div class="container">
+                            {% if aboutMePost.title %}
+                                <p class="title">{{aboutMePost.title}}</p>
+                            {% endif %}
+                            {% if aboutMePost.content %}
+                                <p class="subtitle">{{aboutMePost.content}}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </section>
+                {% endif %}
             {% endfor %}
         </div>
-        <br>
-        <br>
-        <br>
         <div id="contact">
             {% for contactPost in contactPosts %}
-                <h1>{{contactPost.title}}</h1>
-                <p>{{contactPost.content}}</p>
-                <br>
+                {% if contactPost.imageUrl%}
+                    <section class="hero {{contactPost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
+                        <div class="hero-body">
+                            <div class="container">
+                                <div class="columns level">
+                                    <div class="column">
+                                        {% if contactPost.title %}
+                                            <p class="title">{{contactPost.title}}</p>
+                                        {% endif %}
+                                        {% if contactPost.content %}
+                                            <p class="subtitle">{{contactPost.content}}</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="column">
+                                        <div style="justify-content: center; align-items: center; display: flex;">
+                                            <img alt="" src="{{contactPost.imageUrl}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% if contactPost.backgroundImageUrl %}
+                            <div style="z-index: -1; opacity: 0.5; width: 100%; height: 100%; position: absolute; content: url({{contactPost.backgroundImageUrl}});"></div>
+                        {% endif %}
+                    </section>
+                {% else %}
+                <section class="hero {{contactPost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
+                    <div class="hero-body">
+                        <div class="container">
+                            {% if contactPost.title %}
+                                <p class="title">{{contactPost.title}}</p>
+                            {% endif %}
+                            {% if contactPost.content %}
+                                <p class="subtitle">{{contactPost.content}}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </section>
+                {% endif %}
             {% endfor %}
         </div>
     </noscript>
