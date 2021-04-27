@@ -6,6 +6,7 @@ TYPE_CHOICES  = {
     ("work-exp", "work experience"),
     ("projects", "projects"),
     ("contact", "contact"),
+    ("hidden", "hidden"),
 }
 
 SIZE_CHOICES  = {
