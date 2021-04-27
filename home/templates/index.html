@@ -32,7 +32,7 @@
         <nav class="navbar is-fixed-top is-black" role="navigation" aria-label="main-navigation">
             <div class="navbar-brand">
                 {% for nav in navData %}
-                    <a href="#{% if nav.tab == 'kyle' %}home{% else %}{{nav.tab}}{% endif %}" class="navbar-item">
+                    <a href="#/{% if nav.tab != 'kyle' and  nav.tab != 'home'%}{{nav.tab}}{% endif %}" class="navbar-item">
                         {% if nav.icon %}
                             <img class="mr-2" src="{{nav.icon}}" alt="" width="32px" height="32px">
                         {% endif %}
@@ -43,7 +43,7 @@
         </nav>
         <br>
         <br>
-        <div id="home">
+        <div id="/">
             {% for homePost in homePosts %}
                 {% if homePost.imageUrl%}
                     <section class="hero {{homePost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
@@ -97,7 +97,7 @@
                 {% endif %}
             {% endfor %}
         </div>
-        <div id="work-exp">
+        <div id="/work-exp">
             {% for workExpPost in workExpPosts %}
                 {% if workExpPost.imageUrl%}
                     <section class="hero {{workExpPost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
@@ -151,7 +151,7 @@
                 {% endif %}
             {% endfor %}
         </div>
-        <div id="projects">
+        <div id="/projects">
             {% for projectPost in projectPosts %}
                 {% if projectPost.imageUrl%}
                     <section class="hero {{projectPost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
@@ -205,7 +205,7 @@
                 {% endif %}
             {% endfor %}
         </div>
-        <div id="about-me">
+        <div id="/about-me">
             {% for aboutMePost in aboutMePosts %}
                 {% if aboutMePost.imageUrl%}
                     <section class="hero {{aboutMePost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
@@ -259,7 +259,7 @@
                 {% endif %}
             {% endfor %}
         </div>
-        <div id="contact">
+        <div id="/contact">
             {% for contactPost in contactPosts %}
                 {% if contactPost.imageUrl%}
                     <section class="hero {{contactPost.size}} {% if forloop.counter0|divisibleby:2 %}is-dark{% else %}is-dark is-light-dark{% endif %}" style="position: relative; z-index: 1;">
