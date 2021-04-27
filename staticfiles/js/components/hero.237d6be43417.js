@@ -36,7 +36,8 @@ class HeroBody extends React.Component {
 
 class HeroContainer extends React.Component {
     render() {
-        if (this.props.children.post.imageUrl != null && this.props.children.post.imageUrl != "") {
+        if (this.props.children.post.imageUrl != null && this.props.children.post.imageUrl != "" && 
+            this.props.children.post.url != null && this.props.children.post.url != "") {
             return (
                 e("div", {className: "container"},
                     e("div", {className: "columns level"},
@@ -50,12 +51,19 @@ class HeroContainer extends React.Component {
                     )
                 )
             );
-        } else {
+        } else if (this.props.children.post.url != null && this.props.children.post.url != "") {
             return (
                 e("div", {className: "container"},
                     e(HeroTitle, this.props),
                     e(HeroSubTitle, this.props),
                     e(HeroLink, this.props)
+                )
+            );
+        } else {
+            return (
+                e("div", {className: "container"},
+                    e(HeroTitle, this.props),
+                    e(HeroSubTitle, this.props)
                 )
             );
         }
@@ -73,7 +81,9 @@ class HeroImage extends React.Component {
 class HeroLink extends React.Component {
     render() {
         return(
-            e("a", {href: this.props.children.post.url}, this.props.children.post.urlDescription)
+            e("div", {style: {justifyContent: "center", display: "flex"}}, 
+                e("a", {className: "button is-link" `${this.props.children.theme === "is-light" ? " is-light" : ""}`, href: this.props.children.post.url, target: "_blank"}, this.props.children.post.urlDescription)
+            )
         );
     }
 }
