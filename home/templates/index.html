@@ -32,7 +32,7 @@
         <nav class="navbar is-fixed-top is-black" role="navigation" aria-label="main-navigation">
             <div class="navbar-brand">
                 {% for nav in navData %}
-                    <a href="#{{nav.tab}}" class="navbar-item">
+                    <a href="#{% if nav.tab == 'kyle' %}home{% else %}{{nav.tab}}{% endif %}" class="navbar-item">
                         {% if nav.icon %}
                             <img class="mr-2" src="{{nav.icon}}" alt="" width="32px" height="32px">
                         {% endif %}
