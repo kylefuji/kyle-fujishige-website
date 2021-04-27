@@ -86,7 +86,7 @@ class HeroContainer extends React.Component {
 class HeroImage extends React.Component {
     render() {
         return(
-            e("div", {style: {justifyContent: "center", display: "flex"}}, 
+            e("div", {style: {justifyContent: "center", alignItems: "center", display: "flex"}}, 
                 e("img", {alt: "", src: this.props.children.post.imageUrl})
             )
         );
