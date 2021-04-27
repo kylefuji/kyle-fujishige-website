@@ -81,7 +81,7 @@ class HeroImage extends React.Component {
 class HeroLink extends React.Component {
     render() {
         return(
-            e("div", {style: {justifyContent: "center", display: "flex"}}, 
+            e("div", {style: {justifyContent: "start", display: "flex"}}, 
                 e("a", {className: "button is-link", href: this.props.children.post.url, target: "_blank"}, this.props.children.post.urlDescription)
             )
         );
