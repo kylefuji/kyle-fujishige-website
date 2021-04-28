@@ -31,13 +31,11 @@ class NavBarBrand extends React.Component {
                 items.push(e(NavBarItem, {item: item, key: item.id}))
             }    
         })
+        console.log(this.props);
         return (
             e("div", {className: "navbar-brand"},
                 items,
-                e("a", {className: "navbar-item", target:"_blank", href: "https://docs.google.com/document/d/1jwxdyZrSfWOIfovwshYfbMGKN-G3-myvvVQb_x11_7g/edit?usp=sharing"}, 
-                    e("img", {src: "/static/icons/resume.svg", alt: "", width:"32px", height:"32px", className:"mr-2"}),
-                    "Resumé"
-                ),
+                e("a", {className: "navbar-item", href: "#/"}, "Resumé"),
                 e("div", {className: "navbar-burger", "aria-label": "menu", "data-target":"navbarToggleMenu"},
                     e("span"),
                     e("span"),
