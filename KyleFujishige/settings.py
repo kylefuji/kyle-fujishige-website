@@ -139,3 +139,19 @@ SECURE_SSL_REDIRECT = False
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 django_on_heroku.settings(locals(), test_runner=False)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'logfile': {
+            'class': 'logging.FileHandler',
+            'filename': 'server.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['logfile'],
+        },
+    },
+}
