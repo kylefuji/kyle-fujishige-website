@@ -56,7 +56,11 @@ class NavBarMenu extends React.Component {
             return (
                 e("div", {className: "navbar-menu", id:"navbarToggleMenu"}, 
                     e("div", {className: "navbar-start"},
-                        items
+                        items,
+			e("a", {className: "navbar-item", target:"_blank", href: "https://docs.google.com/document/d/1zVQOkt53KqbY2L2OmNI1xTGOQFTATTce/edit?usp=sharing&ouid=113440673074231349930&rtpof=true&sd=true"}, 
+                            e("img", {src: "/static/icons/resume.svg", alt: "", width:"32px", height:"32px", className:"mr-2"}),
+                            "Resumé"
+                        )
                     ),
                     e("div", {className: "navbar-end"},
                         e("a", {className: "navbar-item", id:"toggle-theme", onClick: this.props.children.toggleTheme},
@@ -70,7 +74,11 @@ class NavBarMenu extends React.Component {
             return (
                 e("div", {className: "navbar-menu", id:"navbarToggleMenu"}, 
                     e("div", {className: "navbar-start"},
-                        items
+                        items,
+			e("a", {className: "navbar-item", target:"_blank", href: "https://docs.google.com/document/d/1zVQOkt53KqbY2L2OmNI1xTGOQFTATTce/edit?usp=sharing&ouid=113440673074231349930&rtpof=true&sd=true"}, 
+                            e("img", {src: "/static/icons/resume.svg", alt: "", width:"32px", height:"32px", className:"mr-2"}),
+                            "Resumé"
+                        )
                     ),
                     e("div", {className: "navbar-end"},
                         e("a", {className: "navbar-item", id:"toggle-theme", onClick: this.props.children.toggleTheme},

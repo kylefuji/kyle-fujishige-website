@@ -29,8 +29,10 @@ except KeyError as e:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['kylefujishige.com']
+ALLOWED_HOSTS = ['kylefujishige.com', '10.0.0.68']
 
+# Only allows users to login to admin from local network
+CSRF_TRUSTED_ORIGINS = ['https://kylefujishige.com', 'https://10.0.0.68']
 
 # Application definition
 
@@ -124,13 +126,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'home/static'),
-]
+STATICFILES_DIRS = [BASE_DIR / "home/static"]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'home/static')
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = "/var/www/kylefujishige.com/static"
 
 SECURE_SSL_REDIRECT = False
 
@@ -138,7 +136,6 @@ SECURE_SSL_REDIRECT = False
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-django_on_heroku.settings(locals(), test_runner=False)
 
 LOGGING = {
     'version': 1,
