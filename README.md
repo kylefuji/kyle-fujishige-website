@@ -13,4 +13,4 @@ This is my own personal portfolio website.
 - To have fun!
 
 **Find my website here:**
-https://kyle-fujishige.herokuapp.com/
+https://kylefujishige.com
